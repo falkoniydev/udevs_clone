@@ -1,33 +1,163 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+	font-family: Manrope;
+	src: url("../assets/fonts/Manrope-Regular.ttf");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Manrope, sans-serif;
+	scroll-behavior: smooth;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.container {
+	max-width: 1180px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.nav-items {
+	ul {
+		li {
+			a {
+				border: 2px solid transparent;
+				padding: 8px;
+				cursor: pointer !important;
+				&:hover {
+					border-bottom: 2px solid #1b5bf7;
+				}
+				&:focus {
+					border-bottom: 2px solid #1b5bf7;
+				}
+				&:active {
+					border-bottom: 2px solid #1b5bf7;
+				}
+			}
+		}
+	}
+}
+
+/* HERO SECTION */
+
+.hero-section {
+	background-image: url("../assets/images/hero-bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-top: 70px;
+}
+
+/* MOBILE DEV SECTION */
+
+.mobile-dev,
+.ux_ui_design,
+.it-consulting,
+.delever-section,
+.smsuz-section,
+.goodzone-section,
+.iman-section,
+.contact-us-section {
+	background-image: url("../assets/images/hero-bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* TOOLS SECTION */
+
+.tools-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+.tool-item {
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	transition: opacity 0.3s ease;
+}
+
+.tool-item.faded {
+	opacity: 0.3;
+}
+
+.filter-options {
+	margin-bottom: 20px;
+	display: flex;
+	gap: 10px;
+}
+
+.custom-radio {
+	padding: 5px 10px;
+	border-radius: 4px;
+	cursor: pointer;
+	border: 2px solid transparent;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.custom-radio:before {
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #1b5bf7;
+	border-radius: 50%;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+.custom-radio.active:before {
+	background-color: #1b5bf7;
+	box-shadow: inset 0 0 0 4px white;
+}
+
+.custom-radio.active {
+	color: #000;
+}
+
+/* OUR CLIENTS SECTION */
+
+.clients-section {
+	overflow: hidden;
+	white-space: nowrap;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.marquee {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.marquee-content {
+	display: flex;
+	animation: marquee 100s linear infinite;
+}
+
+.marquee.reverse .marquee-content {
+	animation-direction: reverse;
+}
+
+.client-logo {
+	display: inline-block;
+	margin: 20px;
+	flex: 0 0 auto;
+}
+
+@keyframes marquee {
+	from {
+		transform: translateX(0%);
+	}
+	to {
+		transform: translateX(-50%);
+	}
 }
